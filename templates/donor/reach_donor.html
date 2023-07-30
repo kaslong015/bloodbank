@@ -1,0 +1,57 @@
+{% extends 'donor/donorbase.html' %}
+{% block content %}
+<br><br>
+<div class="container">
+
+
+    <div class="row"> 
+        <form action="{% url ''%}">
+            <input type="text"  name="search" id=""> <button class="btn btn-success" type="submit">search</button>
+        </form>   
+      <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-info">
+            <tr>
+                <th scope="col">Donor name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Address</th>
+                <!-- <th scope="col">Status</th> -->
+                
+            </tr>
+        </thead>
+        <tbody>
+        
+            {% for t in donor %}
+            <tr>                
+                <td>{{t.get_name}}</td>
+                <td> {{t.user.email}}</td>                
+                <td>{{t.mobile}}</td>
+                <td>{{t.bloodgroup}}</td>
+                <td>{{t.address}}</td>  
+                             
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </div>
+
+
+</div>
+<!--Start of Tawk.to Script-->
+<!-- <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/64b6ef4f94cf5d49dc646c70/1h5l9dktc';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script> -->
+  <script src="https://www.socialintents.com/api/socialintents.1.3.js#2c9fab3589616a7501896dfc2b0a0cda" async="async"></script>
+  <script src="https://www.socialintents.com/api/chat/socialintents.1.3.js#2c9fab3589616a7501896dfc2b3e0cdd" async="async"></script>
+  <!--End of Tawk.to Script-->
+{% endblock content %}
