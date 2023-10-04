@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -127,6 +128,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
 STATIC_DIR,
  ]
+
+# make sure the below lines also included
+STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 LOGIN_REDIRECT_URL='/afterlogin'
 
 #for contact us give your gmail id and password
